@@ -1,0 +1,31 @@
+Assignment Title:
+Advanced HR Candidate Class Implementation
+Objective:
+Design and implement an advanced object-oriented
+Python program that represents a Human Resources
+(HR) candidate and handles the creation of personalized
+outreach messages.
+Task:
+Implement a Python class HRCandidate with relevant
+attributes.
+Implement a method prepare_outreach that accepts a
+text template and populates it with the candidate's details.
+Enhance the complexity of the prepare_outreach method
+by including conditional statements that modify the
+output depending on the candidate's information.
+For example, if the candidate's name is unknown,
+the greeting should default to "Dear Candidate".
+Implement error handling within your class to check
+the validity of provided data
+(e.g., check if the email is in a correct format).
+The expected output of the above code should be:
+
+Dear {John Doe},
+
+We are pleased to inform you about an open
+position suitable for your profile.
+Please contact us at your earliest convenience at
+{johndoe@example.com}.
+
+Best regards,
+XYZ Company
