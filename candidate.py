@@ -10,30 +10,29 @@ class HRCandidate:
             print("please provide email")
             raise ValueError("Email not valid")
 
-    def prepare_outreach(self, hr_message):
+    def prepare_outreach(self, hr_message, final_message_template):
         """
         this method creates the message to be sent
         :return: message
         """
-        if self.name:
-            candidate_addressing_string = f"Dear {self.name}"
-        else:
-            candidate_addressing_string = "Dear Candidate"
-        # TODO instead of a pre prepared message get message from user
-        # final_message = f'''{candidate_addressing_string},
-        # We are pleased to inform you about an open position suitable for your profile.
-        # Please contact us at your earliest convenience at {self.email}.
-        # Best regards,
-        # XYZ Company'''
-        final_message = f'''{candidate_addressing_string},
-        {hr_message}.
-        Please contact us via your registered email address - {self.email}'''
+
+        final_message = final_message_template.format(name=self.name, email=self.email, hr_message=hr_message)
 
         return final_message
 
 
-user_message = input("What is your message to candidate? ")
+def get_user_message():
+    hr_message = input("Please type your message. ")
+    return hr_message
 
-candidate_test2 = HRCandidate(name="Adam Smith", email="adamsmith@gugil.com")
-y = candidate_test2.prepare_outreach(user_message)
-print(y)
+
+def get_user_template():
+    hr_custom_template = input(
+        "Please type your message template. Use {name} to place candidate's name."
+        "Use {email} to place candidate's email."
+        "Use {hr_message} to place you previously provided message. ")
+    return hr_custom_template
+
+
+test_candidate = HRCandidate(name="Adam Smith", email="adamsmith@gugil.com")
+print(test_candidate.prepare_outreach(get_user_message(), get_user_template()))
